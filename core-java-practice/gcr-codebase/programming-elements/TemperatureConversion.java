@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class temperatureconversion {
+public class TemperatureConversion {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
