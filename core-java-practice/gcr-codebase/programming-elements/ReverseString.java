@@ -1,4 +1,4 @@
-class Rev{
+class ReverseString{
     public static void main(String[] args) {
         String y ="Samradh";//
         String st="";
