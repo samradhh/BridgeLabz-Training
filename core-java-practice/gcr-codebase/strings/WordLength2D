@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class WordLength2D
+ {
+    public static void main(String[] args)
+     {
+
+        Scanner sc = new Scanner(System.in);
+        String text = sc.nextLine();
+
+        String[] words = splitUsingCharAt(text);
+        String[][] wordsWithLength = getWordsWithLength(words);
+
+        System.out.println("Word\tLength");
+        for (int i = 0; i < wordsWithLength.length; i++)
+         {
+            System.out.println(wordsWithLength[i][0] + "\t" + Integer.parseInt(wordsWithLength[i][1]));
+        }
+
+        sc.close();
+    }
+
+    static int getStringLength(String s)
+     {
+        int count = 0;
+        try
+         {
+            while (true)
+             {
+                s.charAt(count);
+                count++;
+            }
+        } 
+        catch (IndexOutOfBoundsException e) 
+        {
+        }
+        return count;
+    }
+
+    static String[] splitUsingCharAt(String s)
+     {
+        int length = getStringLength(s);
+        int spaceCount = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (s.charAt(i) == ' ') {
+                spaceCount++;
+            }
+        }
+
+        String[] words = new String[spaceCount + 1];
+        int wordIndex = 0;
+        int start = 0;
+
+        for (int i = 0; i < length; i++) 
+        {
+            if (s.charAt(i) == ' ') {
+                words[wordIndex] = getSubstring(s, start, i);
+                wordIndex++;
+                start = i + 1;
+            }
+        }
+        words[wordIndex] = getSubstring(s, start, length);
+        return words;
+    }
+
+    static String[][] getWordsWithLength(String[] words)
+     {
+        String[][] result = new String[words.length][2];
+        for (int i = 0; i < words.length; i++) {
+            result[i][0] = words[i];
+            result[i][1] = String.valueOf(getStringLength(words[i]));
+        }
+        return result;
+    }
+
+    static String getSubstring(String s, int start, int end) 
+    {
+        String result = "";
+        for (int i = start; i < end; i++) {
+            result += s.charAt(i);
+        }
+        return result;
+    }
+}
