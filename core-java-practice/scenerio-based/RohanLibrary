@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class RohanLibrary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Book " + i + ":");
+            System.out.print("Enter due date (dd): ");
+            int dueDate = scanner.nextInt();
+            
+            System.out.print("Enter return date (dd): ");
+            int returnDate = scanner.nextInt();
+            
+            int daysLate = returnDate - dueDate;
+            int fine = 0;   
+            
+            if (daysLate > 0) {
+                fine = daysLate * 5;
+                System.out.println("Days late: " + daysLate);
+                System.out.println("Fine: ₹" + fine);
+            } else {
+                System.out.println("Returned on time. No fine!");
+            }
+            System.out.println();
+        }
+        
+        scanner.close();
+    }
+}
