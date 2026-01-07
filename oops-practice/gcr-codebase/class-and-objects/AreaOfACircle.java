@@ -11,7 +11,7 @@ public class AreaOfACircle {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the radius of the circle: ");
         double radius = scanner.nextDouble();
-        Area_of_A_Circle circle = new Area_of_A_Circle(radius);
+        AreaOfACircle circle = new AreaOfACircle(radius);
         double area = circle.calculateArea();
         System.out.printf("The area of the circle with radius %.2f is %.2f%n", radius, area);
         scanner.close();
